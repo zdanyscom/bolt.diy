@@ -3,10 +3,10 @@ import { useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import {
   chatId as chatIdStore,
-  description as descriptionStore,
   db,
-  updateChatDescription,
+  description as descriptionStore,
   getMessages,
+  updateChatDescription,
 } from '~/lib/persistence';
 
 interface EditChatDescriptionOptions {
@@ -92,6 +92,7 @@ export function useEditChatDescription({
     }
 
     const lengthValid = trimmedDesc.length > 0 && trimmedDesc.length <= 100;
+
     // Allow letters, numbers, spaces, and common punctuation but exclude characters that could cause issues
     const characterValid = /^[a-zA-Z0-9\s\-_.,!?()[\]{}'"]+$/.test(trimmedDesc);
 
